@@ -467,6 +467,16 @@ jurisdictional-domain which relates to their parent jurisdiction</dc:description
     
 
 
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#cadastral-object -->
+
+    <owl:Class rdf:about="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#cadastral-object">
+        <rdfs:subClassOf rdf:resource="&ExtendedDnS;information-object"/>
+        <rdfs:subClassOf rdf:resource="&SocialUnits;organization"/>
+        <dc:description>A land information system for social and economic development. Records of interests in land, a geometric description of land parcels, and further information structures, as well as on the use of the system for taxation, securing of property rights and land management.</dc:description>
+    </owl:Class>
+    
+
+
     <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#jurisdictional-domain -->
 
     <owl:Class rdf:about="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#jurisdictional-domain">
@@ -505,7 +515,7 @@ jurisdictional-domain which relates to their parent jurisdiction</dc:description
     <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#parcel -->
 
     <owl:Class rdf:about="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#parcel">
-        <rdfs:subClassOf rdf:resource="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#jurisdictional-domain"/>
+        <rdfs:subClassOf rdf:resource="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#cadastral-object"/>
         <dc:description>minimum division of territorry</dc:description>
     </owl:Class>
     
