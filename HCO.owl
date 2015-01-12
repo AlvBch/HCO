@@ -16,10 +16,11 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl">
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Annotation>
         <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
         <Literal datatypeIRI="&xsd;string">This ontology propose a model to facilitate the description of temporal evolution of administrative parcels</Literal>
@@ -135,16 +136,16 @@
         <DataProperty IRI="#delegation"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#final-instant"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#initial-instant"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#map"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#type"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="/final-instant"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="/initial-instant"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
@@ -187,11 +188,11 @@
     </SubClassOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#appearance"/>
-        <ObjectProperty IRI="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#successor"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#disappearance"/>
-        <ObjectProperty IRI="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#predecessor"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#dissolved-into"/>
@@ -250,20 +251,20 @@
         <ObjectProperty IRI="#dissolved-into"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#fuses"/>
         <ObjectProperty IRI="#fused-into"/>
+        <ObjectProperty IRI="#fuses"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#incorpores"/>
         <ObjectProperty IRI="#incorporated-into"/>
+        <ObjectProperty IRI="#incorpores"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#rectificates-limits-into"/>
         <ObjectProperty IRI="#limit-rectification"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#segregated-from"/>
         <ObjectProperty IRI="#segregates"/>
+        <ObjectProperty IRI="#segregated-from"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#tematically-changes-into"/>
@@ -277,12 +278,20 @@
         <ObjectProperty IRI="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#successor"/>
         <Class IRI="#parcel"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#disappearance"/>
+        <Class IRI="#parcel"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#predecessor"/>
         <Class IRI="#parcel"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#successor"/>
+        <Class IRI="#parcel"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#appearance"/>
         <Class IRI="#parcel"/>
     </ObjectPropertyRange>
     <DataPropertyDomain>
@@ -306,20 +315,28 @@
         <Class IRI="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#final-instant"/>
+        <Class IRI="#parcel"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#final-instant"/>
+        <Class IRI="#time-interval"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#initial-instant"/>
+        <Class IRI="#parcel"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#initial-instant"/>
+        <Class IRI="#time-interval"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#map"/>
         <Class IRI="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#type"/>
         <Class IRI="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="/final-instant"/>
-        <Class IRI="#time-interval"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="/initial-instant"/>
-        <Class IRI="#time-interval"/>
     </DataPropertyDomain>
     <DataPropertyRange>
         <DataProperty IRI="http://purl.org/dc/elements/1.1/identifier"/>
@@ -346,20 +363,20 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
+        <DataProperty IRI="#final-instant"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#initial-instant"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="#map"/>
         <Datatype abbreviatedIRI="xsd:int"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#type"/>
         <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="/final-instant"/>
-        <Datatype abbreviatedIRI="xsd:dateTime"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="/initial-instant"/>
-        <Datatype abbreviatedIRI="xsd:dateTime"/>
     </DataPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -422,6 +439,11 @@
         <Literal datatypeIRI="&xsd;string">Relation to indicate that the source cadastral object disapears and the destination domain is created from part of it</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#final-instant</IRI>
+        <Literal datatypeIRI="&xsd;string">Property used to indicate the final-instant of a time-period. Its value is a dateTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
         <IRI>#fused-into</IRI>
         <Literal datatypeIRI="&xsd;string">Relation that indicates that the source cadastral object is fused into other new domain. The source domain dissapears and the area covered forms part of the destination domain</Literal>
@@ -440,6 +462,11 @@
         <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
         <IRI>#incorpores</IRI>
         <Literal datatypeIRI="&xsd;string">Relation inverse to incorporated-into</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#initial-instant</IRI>
+        <Literal datatypeIRI="&xsd;string">Property used to indicate the initial-instant of a time-period. Its value is a dateTime</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
@@ -491,19 +518,8 @@
         <IRI>#type</IRI>
         <Literal datatypeIRI="&xsd;string">Type of terrain: rural, urban or neither</Literal>
     </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>/final-instant</IRI>
-        <Literal datatypeIRI="&xsd;string">Property used to indicate the final-instant of a time-period. Its value is a dateTime</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>/initial-instant</IRI>
-        <Literal datatypeIRI="&xsd;string">Property used to indicate the initial-instant of a time-period. Its value is a dateTime</Literal>
-    </AnnotationAssertion>
 </Ontology>
 
 
 
 <!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
-
