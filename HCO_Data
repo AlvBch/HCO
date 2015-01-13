@@ -1,0 +1,524 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY locn "http://www.w3.org/ns/locn#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY HCO "https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:HCO="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:locn="http://www.w3.org/ns/locn#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <Ontology rdf:about="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl">
+        <dc:date rdf:datatype="&xsd;integer">2015</dc:date>
+        <dc:creator rdf:datatype="&xsd;string">Alvaro Bachiller</dc:creator>
+        <dc:title rdf:datatype="&xsd;string">HCO (Historical Cadastral Ontology)</dc:title>
+        <dc:description rdf:datatype="&xsd;string">This ontology propose a model to facilitate the description of temporal evolution of administrative parcels</dc:description>
+        <dc:subject rdf:datatype="&xsd;string">cadastral tracking</dc:subject>
+        <dc:language rdf:datatype="&xsd;string">en</dc:language>
+        <dc:rights rdf:datatype="&xsd;string">http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+        <dc:identifier rdf:datatype="&xsd;string">https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl</dc:identifier>
+        <dc:format rdf:datatype="&xsd;string">owl</dc:format>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <AnnotationProperty rdf:about="&dc;date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <AnnotationProperty rdf:about="&dc;description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/format -->
+
+    <AnnotationProperty rdf:about="&dc;format"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/identifier -->
+
+    <AnnotationProperty rdf:about="&dc;identifier">
+        <rdfs:comment rdf:datatype="&xsd;string">Cadastral number of identification</rdfs:comment>
+    </AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/language -->
+
+    <AnnotationProperty rdf:about="&dc;language"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/rights -->
+
+    <AnnotationProperty rdf:about="&dc;rights"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/subject -->
+
+    <AnnotationProperty rdf:about="&dc;subject"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#predecessor -->
+
+    <ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#predecessor">
+        <dc:description>Relation inverse to successor</dc:description>
+        <rdfs:range rdf:resource="&HCO;parcel"/>
+        <rdfs:domain rdf:resource="&HCO;parcel"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#successor -->
+
+    <ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#successor">
+        <dc:description>Relation between two jurisdictional domains involved in a change</dc:description>
+        <rdfs:domain rdf:resource="&HCO;parcel"/>
+        <rdfs:range rdf:resource="&HCO;parcel"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#appearance -->
+
+    <ObjectProperty rdf:about="&HCO;appearance">
+        <dc:description rdf:datatype="&xsd;string">Relation used to indicate the destination domain is created new</dc:description>
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#successor"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#disappearance -->
+
+    <ObjectProperty rdf:about="&HCO;disappearance">
+        <dc:description rdf:datatype="&xsd;string">Relation inverse to appearance</dc:description>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <inverseOf rdf:resource="&HCO;appearance"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#dissolved-into -->
+
+    <ObjectProperty rdf:about="&HCO;dissolved-into">
+        <dc:description rdf:datatype="&xsd;string">Relation inverse to dissolves</dc:description>
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#predecessor"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#dissolves -->
+
+    <ObjectProperty rdf:about="&HCO;dissolves">
+        <dc:description rdf:datatype="&xsd;string">Relation to indicate that the source cadastral object disapears and the destination domain is created from part of it</dc:description>
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#successor"/>
+        <inverseOf rdf:resource="&HCO;dissolved-into"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#fused-into -->
+
+    <ObjectProperty rdf:about="&HCO;fused-into">
+        <dc:description rdf:datatype="&xsd;string">Relation that indicates that the source cadastral object is fused into other new domain. The source domain dissapears and the area covered forms part of the destination domain</dc:description>
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#predecessor"/>
+        <inverseOf rdf:resource="&HCO;fuses"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#fuses -->
+
+    <ObjectProperty rdf:about="&HCO;fuses">
+        <dc:description rdf:datatype="&xsd;string">Relation inverse to fused-into</dc:description>
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#successor"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#incorporated-into -->
+
+    <ObjectProperty rdf:about="&HCO;incorporated-into">
+        <dc:description rdf:datatype="&xsd;string">Relation used to indicate that a cadastral object is incorporated into another existent one</dc:description>
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#predecessor"/>
+        <inverseOf rdf:resource="&HCO;incorpores"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#incorpores -->
+
+    <ObjectProperty rdf:about="&HCO;incorpores">
+        <dc:description rdf:datatype="&xsd;string">Relation inverse to incorporated-into</dc:description>
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#successor"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#limit-rectification -->
+
+    <ObjectProperty rdf:about="&HCO;limit-rectification">
+        <dc:description rdf:datatype="&xsd;string">Relation used to indicate a boundary change</dc:description>
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#successor"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#rectificates-limits-into -->
+
+    <ObjectProperty rdf:about="&HCO;rectificates-limits-into">
+        <dc:description rdf:datatype="&xsd;string">Relation inverse to limit-rectification</dc:description>
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#predecessor"/>
+        <inverseOf rdf:resource="&HCO;limit-rectification"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#segregated-from -->
+
+    <ObjectProperty rdf:about="&HCO;segregated-from">
+        <dc:description rdf:datatype="&xsd;string">Relation used to indicate that a part of a cadastral object is transformed into a new one</dc:description>
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#successor"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#segregates -->
+
+    <ObjectProperty rdf:about="&HCO;segregates">
+        <dc:description rdf:datatype="&xsd;string">Relation inverse to segregates</dc:description>
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#predecessor"/>
+        <inverseOf rdf:resource="&HCO;segregated-from"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#tematic-change -->
+
+    <ObjectProperty rdf:about="&HCO;tematic-change">
+        <dc:description rdf:datatype="&xsd;string">Relation used to indicate a change in the properties</dc:description>
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#successor"/>
+    </ObjectProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#tematically-changes-into -->
+
+    <ObjectProperty rdf:about="&HCO;tematically-changes-into">
+        <dc:description rdf:datatype="&xsd;string">Relation inverse to tematic-change</dc:description>
+        <rdfs:subPropertyOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#predecessor"/>
+        <inverseOf rdf:resource="&HCO;tematic-change"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/identifier -->
+
+    <DatatypeProperty rdf:about="&dc;identifier">
+        <rdfs:comment rdf:datatype="&xsd;string">Cadastral number of identification</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/locn#geometry -->
+
+    <DatatypeProperty rdf:about="&locn;geometry">
+        <dc:description rdf:datatype="&xsd;string">Associates any resource with the corresponding geometry</dc:description>
+        <rdfs:domain rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#area -->
+
+    <DatatypeProperty rdf:about="&HCO;area">
+        <rdfs:comment rdf:datatype="&xsd;string">Resource area in scuare metres</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#change -->
+
+    <DatatypeProperty rdf:about="&HCO;change">
+        <rdfs:comment rdf:datatype="&xsd;string">Variation that leads to the cadastral object</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#delegation -->
+
+    <DatatypeProperty rdf:about="&HCO;delegation">
+        <rdfs:comment rdf:datatype="&xsd;string">Concretes the area where is located the cadastral object</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#final-instant -->
+
+    <DatatypeProperty rdf:about="&HCO;final-instant">
+        <rdfs:comment rdf:datatype="&xsd;string">Property used to indicate the final-instant of a time-period. Its value is a dateTime</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain rdf:resource="&HCO;parcel"/>
+        <rdfs:domain rdf:resource="&HCO;time-interval"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#initial-instant -->
+
+    <DatatypeProperty rdf:about="&HCO;initial-instant">
+        <rdfs:comment rdf:datatype="&xsd;string">Property used to indicate the initial-instant of a time-period. Its value is a dateTime</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain rdf:resource="&HCO;parcel"/>
+        <rdfs:domain rdf:resource="&HCO;time-interval"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#map -->
+
+    <DatatypeProperty rdf:about="&HCO;map">
+        <rdfs:comment rdf:datatype="&xsd;string">Number of map where the cadastral object is located</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#type -->
+
+    <DatatypeProperty rdf:about="&HCO;type">
+        <rdfs:comment rdf:datatype="&xsd;string">Type of terrain: rural, urban or neither</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#time-interval -->
+
+    <Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#time-interval"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object -->
+
+    <Class rdf:about="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#cadastral-object -->
+
+    <Class rdf:about="&HCO;cadastral-object">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
+        <dc:description>A land information system for social and economic development. Records of interests in land, a geometric description of land parcels, and further information structures, as well as on the use of the system for taxation, securing of property rights and land management.</dc:description>
+    </Class>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#parcel -->
+
+    <Class rdf:about="&HCO;parcel">
+        <rdfs:subClassOf rdf:resource="&HCO;cadastral-object"/>
+        <dc:description>Minimum division of territory</dc:description>
+    </Class>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#time-interval -->
+
+    <Class rdf:about="&HCO;time-interval">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#time-interval"/>
+        <dc:description>A time-interval is defined in this context as a period of time between an initial-instant and a final-instant</dc:description>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#260225555 -->
+
+    <NamedIndividual rdf:about="&HCO;260225555">
+        <rdf:type rdf:resource="&HCO;parcel"/>
+        <HCO:delegation rdf:datatype="&xsd;int">104</HCO:delegation>
+        <HCO:initial-instant rdf:datatype="&xsd;dateTime">2005-01-11</HCO:initial-instant>
+        <HCO:final-instant rdf:datatype="&xsd;dateTime">2011-10-28</HCO:final-instant>
+        <HCO:map rdf:datatype="&xsd;int">208</HCO:map>
+        <HCO:delegation rdf:datatype="&xsd;int">28</HCO:delegation>
+        <HCO:area rdf:datatype="&xsd;double">54872.0</HCO:area>
+        <dc:identifier rdf:datatype="&xsd;string">62800001VL4368S</dc:identifier>
+        <locn:geometry rdf:datatype="&rdfs;Literal">&lt;gml:MultiPolygon srsName=&quot;EPSG:4258&quot;&gt;&lt;gml:polygonMember&gt;&lt;gml:Polygon&gt;&lt;gml:outerBoundaryIs&gt;&lt;gml:LinearRing&gt;&lt;gml:coordinates&gt;446192.01549999998,4537575.3214999996 446192.49400000001,4537571.6610000003 446194.12449999998,4537559.7714999998 446125.51000000001,4537544.5564999999 446092.78850000002,4537443.8624999998 446090.76299999998,4537448.4819999998 446085.48349999997,4537466.0420000004 446080.58350000001,4537484.102 446076.8835,4537499.2225000001 446073.04350000003,4537514.0525000002 446069.34399999998,4537527.6124999998 446063.32400000002,4537550.0625 446061.35399999999,4537558.2824999997 446050.99249999999,4537594.5729999999 446041.36550000001,4537660.2149999999 446027.99550000002,4537722.2735000001 446021.52799999999,4537757.949 446011.56699999998,4537902.2139999997 446006.158,4538010.1945000002 446010.05800000002,4538009.5844999999 446022.348,4538010.1545000002 446034.43800000002,4538010.7345000003 446044.91800000001,4538012.4145 446054.80849999998,4538015.3039999995 446066.24849999999,4538018.9939999999 446073.93849999999,4538023.3940000003 446082.51850000001,4538027.9340000004 446090.35849999997,4538033.034 446097.6385,4538037.9939999999 446100.70850000001,4538040.6440000003 446102.30849999998,4538038.1339999996 446103.79849999998,4538032.1040000003 446104.37849999999,4538024.7340000002 446104.54849999998,4538009.5839999998 446104.87800000003,4537998.1540000001 446105.38799999998,4537979.0334999999 446106.91800000001,4537966.9435000001 446107.20799999998,4537957.9634999996 446107.87800000003,4537944.8234999999 446108.8075,4537931.1835000003 446109.97749999998,4537917.2834999999 446112.46750000003,4537907.4035 446113.65749999997,4537900.9234999996 446114.70750000002,4537896.9634999996 446114.53749999998,4537889.8435000004 446113.587,4537865.8635 446112.67700000003,4537836.8229999999 446120.06650000002,4537792.5329999998 446120.07650000002,4537792.483 446122.636,4537756.3530000001 446136.80550000002,4537696.7925000004 446141.99550000002,4537683.7625000002 446155.37550000002,4537663.2620000001 446164.23499999999,4537655.682 446192.97499999998,4537630.6119999997 446201.03450000001,4537576.3815000001 446192.01549999998,4537575.3214999996&lt;/gml:coordinates&gt;&lt;/gml:LinearRing&gt;&lt;/gml:outerBoundaryIs&gt;&lt;/gml:Polygon&gt;&lt;/gml:polygonMember&gt;&lt;/gml:MultiPolygon&gt;</locn:geometry>
+        <HCO:type rdf:datatype="&xsd;string">urban</HCO:type>
+        <HCO:segregates rdf:resource="&HCO;260225668"/>
+        <HCO:segregates rdf:resource="&HCO;260225669"/>
+        <HCO:segregates rdf:resource="&HCO;260225670"/>
+        <HCO:segregates rdf:resource="&HCO;260225671"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#260225668 -->
+
+    <NamedIndividual rdf:about="&HCO;260225668">
+        <rdf:type rdf:resource="&HCO;parcel"/>
+        <HCO:initial-instant rdf:datatype="&xsd;dateTime">2011-10-28</HCO:initial-instant>
+        <HCO:final-instant rdf:datatype="&xsd;dateTime">2013-10-07</HCO:final-instant>
+        <HCO:map rdf:datatype="&xsd;int">208</HCO:map>
+        <HCO:delegation rdf:datatype="&xsd;int">28</HCO:delegation>
+        <HCO:area rdf:datatype="&xsd;double">38934.0</HCO:area>
+        <dc:identifier rdf:datatype="&xsd;string">6280001VL4368S</dc:identifier>
+        <locn:geometry rdf:datatype="&rdfs;Literal">&lt;gml:MultiPolygon srsName=&quot;EPSG:4258&quot;&gt;&lt;gml:polygonMember&gt;&lt;gml:Polygon&gt;&lt;gml:outerBoundaryIs&gt;&lt;gml:LinearRing&gt;&lt;gml:coordinates&gt;446006.58149999997,4538001.7385 446006.158,4538010.1945000002 446010.05800000002,4538009.5844999999 446022.348,4538010.1545000002 446034.43800000002,4538010.7345000003 446044.91800000001,4538012.4145 446054.80849999998,4538015.3039999995 446066.24849999999,4538018.9939999999 446073.93849999999,4538023.3940000003 446082.51850000001,4538027.9340000004 446090.35849999997,4538033.034 446097.6385,4538037.9939999999 446100.70850000001,4538040.6440000003 446102.30849999998,4538038.1339999996 446103.79849999998,4538032.1040000003 446104.37849999999,4538024.7340000002 446104.54849999998,4538009.5839999998 446104.87800000003,4537998.1540000001 446105.38799999998,4537979.0334999999 446106.91800000001,4537966.9435000001 446107.20799999998,4537957.9634999996 446107.87800000003,4537944.8234999999 446108.8075,4537931.1835000003 446109.97749999998,4537917.2834999999 446112.46750000003,4537907.4035 446113.65749999997,4537900.9234999996 446114.70750000002,4537896.9634999996 446114.53749999998,4537889.8435000004 446113.587,4537865.8635 446112.67700000003,4537836.8229999999 446120.06650000002,4537792.5329999998 446120.07650000002,4537792.483 446122.636,4537756.3530000001 446136.80550000002,4537696.7925000004 446141.99550000002,4537683.7625000002 446155.37550000002,4537663.2620000001 446164.23499999999,4537655.682 446192.97499999998,4537630.6119999997 446201.03450000001,4537576.3815000001 446192.01549999998,4537575.3214999996 446192.49400000001,4537571.6610000003 446194.12449999998,4537559.7714999998 446125.51000000001,4537544.5564999999 446092.78850000002,4537443.8624999998 446090.76299999998,4537448.4819999998 446085.48349999997,4537466.0420000004 446080.58350000001,4537484.102 446076.8835,4537499.2225000001 446073.04350000003,4537514.0525000002 446069.34399999998,4537527.6124999998 446063.32400000002,4537550.0625 446061.35399999999,4537558.2824999997 446052.79749999999,4537588.2520000003 446075.71850000002,4537679.4024999999 446075.00050000002,4537716.7300000004 446069.9755,4537777.7470000004 446062.79700000002,4537835.892 446058.1605,4537873.4445000002 446046.65100000001,4537966.6725000003 446042.788,4537997.9584999997 446024.74900000001,4538000.9955000002 446006.58149999997,4538001.7385&lt;/gml:coordinates&gt;&lt;/gml:LinearRing&gt;&lt;/gml:outerBoundaryIs&gt;&lt;/gml:Polygon&gt;&lt;/gml:polygonMember&gt;&lt;/gml:MultiPolygon&gt;</locn:geometry>
+        <HCO:type rdf:datatype="&xsd;string">urban</HCO:type>
+        <HCO:segregated-from rdf:resource="&HCO;260225555"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#260225669 -->
+
+    <NamedIndividual rdf:about="&HCO;260225669">
+        <rdf:type rdf:resource="&HCO;parcel"/>
+        <HCO:initial-instant rdf:datatype="&xsd;dateTime">2011-10-28</HCO:initial-instant>
+        <HCO:map rdf:datatype="&xsd;int">208</HCO:map>
+        <HCO:delegation rdf:datatype="&xsd;int">28</HCO:delegation>
+        <HCO:area rdf:datatype="&xsd;double">3926.0</HCO:area>
+        <dc:identifier rdf:datatype="&xsd;string">6280002VL4368S</dc:identifier>
+        <locn:geometry rdf:datatype="&rdfs;Literal">&lt;gml:MultiPolygon srsName=&quot;EPSG:4258&quot;&gt;&lt;gml:polygonMember&gt;&lt;gml:Polygon&gt;&lt;gml:outerBoundaryIs&gt;&lt;gml:LinearRing&gt;&lt;gml:coordinates&gt;446073.8885,4537730.233 446075.00050000002,4537716.7300000004 446075.71850000002,4537679.4024999999 446052.79749999999,4537588.2520000003 446050.99249999999,4537594.5729999999 446041.36550000001,4537660.2149999999 446027.99550000002,4537722.2735000001 446026.7095,4537729.3660000004 446073.8885,4537730.233&lt;/gml:coordinates&gt;&lt;/gml:LinearRing&gt;&lt;/gml:outerBoundaryIs&gt;&lt;/gml:Polygon&gt;&lt;/gml:polygonMember&gt;&lt;/gml:MultiPolygon&gt;</locn:geometry>
+        <HCO:type rdf:datatype="&xsd;string">urban</HCO:type>
+        <HCO:segregated-from rdf:resource="&HCO;260225555"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#260225670 -->
+
+    <NamedIndividual rdf:about="&HCO;260225670">
+        <rdf:type rdf:resource="&HCO;parcel"/>
+        <HCO:initial-instant rdf:datatype="&xsd;dateTime">2011-10-28</HCO:initial-instant>
+        <HCO:final-instant rdf:datatype="&xsd;dateTime">2013-10-07</HCO:final-instant>
+        <HCO:map rdf:datatype="&xsd;int">208</HCO:map>
+        <HCO:delegation rdf:datatype="&xsd;int">28</HCO:delegation>
+        <HCO:area rdf:datatype="&xsd;double">3418.0</HCO:area>
+        <dc:identifier rdf:datatype="&xsd;string">6280004VL4368S</dc:identifier>
+        <locn:geometry rdf:datatype="&rdfs;Literal">&lt;gml:MultiPolygon srsName=&quot;EPSG:4258&quot;&gt;&lt;gml:polygonMember&gt;&lt;gml:Polygon&gt;&lt;gml:outerBoundaryIs&gt;&lt;gml:LinearRing&gt;&lt;gml:coordinates&gt;446011.0135,4537913.2664999999 446006.58149999997,4538001.7385 446024.74900000001,4538000.9955000002 446042.788,4537997.9584999997 446046.65100000001,4537966.6725000003 446053.33399999997,4537912.5405000001 446011.0135,4537913.2664999999&lt;/gml:coordinates&gt;&lt;/gml:LinearRing&gt;&lt;/gml:outerBoundaryIs&gt;&lt;/gml:Polygon&gt;&lt;/gml:polygonMember&gt;&lt;/gml:MultiPolygon&gt;</locn:geometry>
+        <HCO:type rdf:datatype="&xsd;string">urban</HCO:type>
+        <HCO:segregated-from rdf:resource="&HCO;260225555"/>
+    </NamedIndividual>
+    
+
+
+    <!-- https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#260225671 -->
+
+    <NamedIndividual rdf:about="&HCO;260225671">
+        <rdf:type rdf:resource="&HCO;parcel"/>
+        <HCO:initial-instant rdf:datatype="&xsd;dateTime">2011-10-28</HCO:initial-instant>
+        <HCO:final-instant rdf:datatype="&xsd;dateTime">2013-10-07</HCO:final-instant>
+        <HCO:map rdf:datatype="&xsd;int">208</HCO:map>
+        <HCO:delegation rdf:datatype="&xsd;int">28</HCO:delegation>
+        <dc:identifier rdf:datatype="&xsd;string">6280003VL4368S</dc:identifier>
+        <HCO:area rdf:datatype="&xsd;double">8594.0</HCO:area>
+        <locn:geometry rdf:datatype="&rdfs;Literal">&lt;gml:MultiPolygon srsName=&quot;EPSG:4258&quot;&gt;&lt;gml:polygonMember&gt;&lt;gml:Polygon&gt;&lt;gml:outerBoundaryIs&gt;&lt;gml:LinearRing&gt;&lt;gml:coordinates&gt;446011.0135,4537913.2664999999 446053.33399999997,4537912.5405000001 446058.1605,4537873.4445000002 446062.79700000002,4537835.892 446069.9755,4537777.7470000004 446073.8885,4537730.233 446026.7095,4537729.3660000004 446021.52799999999,4537757.949 446011.56699999998,4537902.2139999997 446011.0135,4537913.2664999999&lt;/gml:coordinates&gt;&lt;/gml:LinearRing&gt;&lt;/gml:outerBoundaryIs&gt;&lt;/gml:Polygon&gt;&lt;/gml:polygonMember&gt;&lt;/gml:MultiPolygon&gt;</locn:geometry>
+        <HCO:type rdf:datatype="&xsd;string">urban</HCO:type>
+        <HCO:segregated-from rdf:resource="&HCO;260225555"/>
+    </NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
