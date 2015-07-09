@@ -6,6 +6,10 @@
     <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+	<!ENTITY locn "http://www.w3.org/ns/locn#" >
+	<!ENTITY geo "http://www.w3.org/2003/01/geo/wgs84_pos#" >
+    <!ENTITY HCO "https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#" >
+	
 ]>
 
 
@@ -15,7 +19,12 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl">
+	 xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	 xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:HCO="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#"
+     xmlns:locn="http://www.w3.org/ns/locn#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+	 ontologyIRI="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl">
     <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
     <Prefix name="HCO" IRI="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#"/>
