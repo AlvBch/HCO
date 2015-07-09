@@ -17,45 +17,49 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl">
     <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="HCO" IRI="https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl#"/>
+    <Prefix name="geo" IRI="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="locn" IRI="http://www.w3.org/ns/locn#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Annotation>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <Literal datatypeIRI="&xsd;string">This ontology propose a model to facilitate the description of temporal evolution of administrative parcels</Literal>
     </Annotation>
     <Annotation>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/rights"/>
+        <AnnotationProperty abbreviatedIRI="dc:rights"/>
         <Literal datatypeIRI="&xsd;string">http://creativecommons.org/licenses/by-sa/4.0/</Literal>
     </Annotation>
     <Annotation>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/format"/>
+        <AnnotationProperty abbreviatedIRI="dc:format"/>
         <Literal datatypeIRI="&xsd;string">owl</Literal>
     </Annotation>
     <Annotation>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/date"/>
+        <AnnotationProperty abbreviatedIRI="dc:date"/>
         <Literal datatypeIRI="&xsd;integer">2015</Literal>
     </Annotation>
     <Annotation>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/identifier"/>
+        <AnnotationProperty abbreviatedIRI="dc:identifier"/>
         <Literal datatypeIRI="&xsd;string">https://raw.github.com/AlvBch/HCO/MasterThesis/HCO.owl</Literal>
     </Annotation>
     <Annotation>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
-        <Literal datatypeIRI="&xsd;string">Alvaro Bachiller</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/title"/>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
         <Literal datatypeIRI="&xsd;string">HCO (Historical Cadastral Ontology)</Literal>
     </Annotation>
     <Annotation>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/language"/>
-        <Literal datatypeIRI="&xsd;string">en</Literal>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <Literal datatypeIRI="&xsd;string">Alvaro Bachiller</Literal>
     </Annotation>
     <Annotation>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/subject"/>
+        <AnnotationProperty abbreviatedIRI="dc:subject"/>
         <Literal datatypeIRI="&xsd;string">cadastral tracking</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:language"/>
+        <Literal datatypeIRI="&xsd;string">en</Literal>
     </Annotation>
     <Declaration>
         <Class IRI="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#time-interval"/>
@@ -121,10 +125,10 @@
         <ObjectProperty IRI="#tematically-changes-into"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="http://purl.org/dc/elements/1.1/identifier"/>
+        <DataProperty abbreviatedIRI="dc:identifier"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="http://www.w3.org/ns/locn#geometry"/>
+        <DataProperty abbreviatedIRI="geo:geometry"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#area"/>
@@ -148,31 +152,31 @@
         <DataProperty IRI="#type"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/date"/>
+        <AnnotationProperty abbreviatedIRI="dc:date"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/format"/>
+        <AnnotationProperty abbreviatedIRI="dc:format"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/identifier"/>
+        <AnnotationProperty abbreviatedIRI="dc:identifier"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/language"/>
+        <AnnotationProperty abbreviatedIRI="dc:language"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/rights"/>
+        <AnnotationProperty abbreviatedIRI="dc:rights"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/subject"/>
+        <AnnotationProperty abbreviatedIRI="dc:subject"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/title"/>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
     </Declaration>
     <SubClassOf>
         <Class IRI="#cadastral-object"/>
@@ -295,11 +299,7 @@
         <Class IRI="#parcel"/>
     </ObjectPropertyRange>
     <DataPropertyDomain>
-        <DataProperty IRI="http://purl.org/dc/elements/1.1/identifier"/>
-        <Class IRI="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://www.w3.org/ns/locn#geometry"/>
+        <DataProperty abbreviatedIRI="geo:geometry"/>
         <Class IRI="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
@@ -339,12 +339,8 @@
         <Class IRI="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object"/>
     </DataPropertyDomain>
     <DataPropertyRange>
-        <DataProperty IRI="http://purl.org/dc/elements/1.1/identifier"/>
+        <DataProperty abbreviatedIRI="dc:identifier"/>
         <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="http://www.w3.org/ns/locn#geometry"/>
-        <Datatype abbreviatedIRI="rdfs:Literal"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#area"/>
@@ -380,26 +376,26 @@
     </DataPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://purl.org/dc/elements/1.1/identifier</IRI>
+        <AbbreviatedIRI>dc:identifier</AbbreviatedIRI>
         <Literal datatypeIRI="&xsd;string">Cadastral number of identification</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#predecessor</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Relation inverse to successor</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#successor</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Relation between two jurisdictional domains involved in a change</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
-        <IRI>http://www.w3.org/ns/locn#geometry</IRI>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <AbbreviatedIRI>geo:geometry</AbbreviatedIRI>
         <Literal datatypeIRI="&xsd;string">Associates any resource with the corresponding geometry</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#appearance</IRI>
         <Literal datatypeIRI="&xsd;string">Relation used to indicate the destination domain is created new</Literal>
     </AnnotationAssertion>
@@ -409,9 +405,9 @@
         <Literal datatypeIRI="&xsd;string">Resource area in scuare metres</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#cadastral-object</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">A land information system for social and economic development. Records of interests in land, a geometric description of land parcels, and further information structures, as well as on the use of the system for taxation, securing of property rights and land management.</Literal>
+        <Literal datatypeIRI="&xsd;string">A land information system for social and economic development. Records of interests in land, a geometric description of land parcels, and further information structures, as well as on the use of the system for taxation, securing of property rights and land management.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -424,17 +420,17 @@
         <Literal datatypeIRI="&xsd;string">Concretes the area where is located the cadastral object</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#disappearance</IRI>
         <Literal datatypeIRI="&xsd;string">Relation inverse to appearance</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#dissolved-into</IRI>
         <Literal datatypeIRI="&xsd;string">Relation inverse to dissolves</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#dissolves</IRI>
         <Literal datatypeIRI="&xsd;string">Relation to indicate that the source cadastral object disapears and the destination domain is created from part of it</Literal>
     </AnnotationAssertion>
@@ -444,22 +440,22 @@
         <Literal datatypeIRI="&xsd;string">Property used to indicate the final-instant of a time-period. Its value is a dateTime</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#fused-into</IRI>
         <Literal datatypeIRI="&xsd;string">Relation that indicates that the source cadastral object is fused into other new domain. The source domain dissapears and the area covered forms part of the destination domain</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#fuses</IRI>
         <Literal datatypeIRI="&xsd;string">Relation inverse to fused-into</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#incorporated-into</IRI>
         <Literal datatypeIRI="&xsd;string">Relation used to indicate that a cadastral object is incorporated into another existent one</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#incorpores</IRI>
         <Literal datatypeIRI="&xsd;string">Relation inverse to incorporated-into</Literal>
     </AnnotationAssertion>
@@ -469,7 +465,7 @@
         <Literal datatypeIRI="&xsd;string">Property used to indicate the initial-instant of a time-period. Its value is a dateTime</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#limit-rectification</IRI>
         <Literal datatypeIRI="&xsd;string">Relation used to indicate a boundary change</Literal>
     </AnnotationAssertion>
@@ -479,37 +475,37 @@
         <Literal datatypeIRI="&xsd;string">Number of map where the cadastral object is located</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#parcel</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Minimum division of territory</Literal>
+        <Literal datatypeIRI="&xsd;string">Minimum division of territory</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#rectificates-limits-into</IRI>
         <Literal datatypeIRI="&xsd;string">Relation inverse to limit-rectification</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#segregated-from</IRI>
         <Literal datatypeIRI="&xsd;string">Relation used to indicate that a part of a cadastral object is transformed into a new one</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#segregates</IRI>
         <Literal datatypeIRI="&xsd;string">Relation inverse to segregates</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#tematic-change</IRI>
         <Literal datatypeIRI="&xsd;string">Relation used to indicate a change in the properties</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#tematically-changes-into</IRI>
         <Literal datatypeIRI="&xsd;string">Relation inverse to tematic-change</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
         <IRI>#time-interval</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">A time-interval is defined in this context as a period of time between an initial-instant and a final-instant</Literal>
     </AnnotationAssertion>
@@ -518,8 +514,13 @@
         <IRI>#type</IRI>
         <Literal datatypeIRI="&xsd;string">Type of terrain: rural, urban or neither</Literal>
     </AnnotationAssertion>
+    <AnnotationPropertyDomain>
+        <AnnotationProperty abbreviatedIRI="dc:identifier"/>
+        <IRI>http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#information-object</IRI>
+    </AnnotationPropertyDomain>
 </Ontology>
 
 
 
 <!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
